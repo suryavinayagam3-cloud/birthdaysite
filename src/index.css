@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Reenie+Beanie&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  /* Ruby Red & Champagne Gold Theme */
+  --color-midnight: #1a0508; /* Deepest burgundy/black */
+  --color-darkteal: #2d0a13; /* Dark ruby */
+  --color-deepteal: #4a1523; /* Rich crimson */
+  --color-blueteal: #7a1f33; /* Bright ruby/red */
+  --color-softpink: #e8c382; /* Champagne gold */
+  --color-lightpink: #f5dfb8; /* Lighter champagne */
+  --color-warmwhite: #fffdf9; /* Warm ivory */
+  --color-rosegold: #d4af37;  /* Rich classic gold */
+  --color-rosegoldLight: #f3e5ab; /* Pale gold */
+
+  --font-serif: "Cormorant Garamond", Playfair Display, Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-handwriting: "Reenie Beanie", cursive;
+
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  --shadow-glow-pink: 0 0 35px -5px rgba(255, 182, 193, 0.35);
+  --shadow-glow-gold: 0 0 30px -5px rgba(224, 169, 109, 0.4);
+  --shadow-cake-glow: 0 20px 50px rgba(255, 182, 193, 0.25);
+
+  --animate-float-slow: float 6s ease-in-out infinite;
+  --animate-float-reverse: floatRev 7s ease-in-out infinite;
+  --animate-pulse-glow: pulseGlow 3s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.5s infinite linear;
+}
+
+/* ═════════════════════════════════════════════ */
+/* Keyframe Animations                         */
+/* ═════════════════════════════════════════════ */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+@keyframes floatRev {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(10px) rotate(-2deg); }
+}
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ═════════════════════════════════════════════ */
+/* Section Reveal Animation (scroll-triggered)  */
+/* ═════════════════════════════════════════════ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═════════════════════════════════════════════ */
+/* Base Styles                                  */
+/* ═════════════════════════════════════════════ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-midnight text-warmwhite font-sans antialiased selection:bg-softpink selection:text-midnight overflow-x-hidden min-h-screen relative;
+  }
+}
+
+/* ═════════════════════════════════════════════ */
+/* Component Tokens                             */
+/* ═════════════════════════════════════════════ */
+@layer components {
+  .glass-panel {
+    background: rgba(15, 32, 39, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 182, 193, 0.15);
+  }
+  .glass-card {
+    background: linear-gradient(135deg, rgba(32, 58, 67, 0.5) 0%, rgba(15, 32, 39, 0.75) 100%);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 214, 224, 0.12);
+  }
+  .glass-card:hover {
+    border-color: rgba(255, 182, 193, 0.35);
+    box-shadow: 0 12px 30px -10px rgba(255, 182, 193, 0.2);
+  }
+  .glass-pill {
+    background: rgba(8, 19, 26, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(224, 169, 109, 0.25);
+  }
+}
+
+/* ═════════════════════════════════════════════ */
+/* Scrollbar                                    */
+/* ═════════════════════════════════════════════ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #08131A;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 182, 193, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 182, 193, 0.5);
+}
+
+/* Hide scrollbar completely (used for horizontal snap-scroll sections) */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* ═════════════════════════════════════════════ */
+/* Interactive 3D Cake CSS Styling              */
+/* ═════════════════════════════════════════════ */
+.cake-container {
+  perspective: 1000px;
+}
+.cake-body {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.cake-flame {
+  transform-origin: center bottom;
+  animation: flicker 1.2s ease-in-out infinite alternate;
+}
+@keyframes flicker {
+  0% { transform: scale(1) rotate(-1deg); opacity: 0.9; }
+  50% { transform: scale(1.15) rotate(2deg); opacity: 1; }
+  100% { transform: scale(0.95) rotate(-2deg); opacity: 0.85; }
+}
+
+/* ═════════════════════════════════════════════ */
+/* Equalizer / Audio Player Bars                */
+/* ═════════════════════════════════════════════ */
+.eq-bar {
+  animation: eqBounce 1.2s ease-in-out infinite alternate;
+}
+.eq-bar:nth-child(2) { animation-delay: 0.2s; }
+.eq-bar:nth-child(3) { animation-delay: 0.4s; }
+.eq-bar:nth-child(4) { animation-delay: 0.1s; }
+@keyframes eqBounce {
+  0% { height: 4px; }
+  100% { height: 20px; }
+}
+
+/* ═════════════════════════════════════════════ */
+/* Polaroid Photo Hover Animations              */
+/* ═════════════════════════════════════════════ */
+.polaroid {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.polaroid:hover {
+  transform: translateY(-8px) scale(1.03) rotate(0deg) !important;
+  z-index: 20;
+}
+
+/* ═════════════════════════════════════════════ */
+/* Love Letter Envelope Interaction             */
+/* ═════════════════════════════════════════════ */
+.letter-paper {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+}
+.envelope-open .letter-paper {
+  transform: translateY(-90px);
+}
+
+/* ═════════════════════════════════════════════ */
+/* Safe Area Padding (iOS devices)              */
+/* ═════════════════════════════════════════════ */
+.pb-safe {
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+}
