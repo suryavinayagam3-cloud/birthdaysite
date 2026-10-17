@@ -5,21 +5,33 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { initializeApp, cert } from 'firebase-admin/app';
+import { initializeApp, cert, getApps } from 'firebase-admin/app';
 import { getFirestore, Timestamp } from 'firebase-admin/firestore';
 
 dotenv.config();
 
 const {
   FIREBASE_SERVICE_ACCOUNT_PATH,
+  FIREBASE_SERVICE_ACCOUNT_JSON,
   JWT_SECRET,
-  PORT = 3001
+  PORT = 3001,
+  CREATOR_PASSWORD,
+  FRIEND_PASSWORD
 } = process.env;
 
-if (!FIREBASE_SERVICE_ACCOUNT_PATH || !JWT_SECRET) {
+// Validate required environment variables.
+if (!JWT_SECRET) {
+  throw new Error('Missing JWT_SECRET environment variable');
+}
+
+if (!CREATOR_PASSWORD || !FRIEND_PASSWORD) {
   throw new Error(
-    'Missing FIREBASE_SERVICE_ACCOUNT_PATH or JWT_SECRET in .env'
+    'Missing CREATOR_PASSWORD or FRIEND_PASSWORD environment variable'
   );
+}
+
+if (CREATOR_PASSWORD === FRIEND_PASSWORD) {
+  throw new Error('Creator and friend passwords must be different');
 }
 
 const app = express();
@@ -27,24 +39,47 @@ const app = express();
 app.use(cors());
 app.use(express.json({ limit: '20kb' }));
 
-// Initialize Firebase Admin SDK
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const serviceAccountPath = path.resolve(
-  __dirname,
-  FIREBASE_SERVICE_ACCOUNT_PATH
-);
+// Initialize Firebase Admin.
+// On Vercel, configure FIREBASE_SERVICE_ACCOUNT_JSON.
+// Locally, FIREBASE_SERVICE_ACCOUNT_PATH can point to the JSON file.
+if (getApps().length === 0) {
+  let serviceAccount;
 
-initializeApp({
-  credential: cert(serviceAccountPath)
-});
+  if (FIREBASE_SERVICE_ACCOUNT_JSON) {
+    try {
+      serviceAccount = JSON.parse(FIREBASE_SERVICE_ACCOUNT_JSON);
+    } catch {
+      throw new Error(
+        'FIREBASE_SERVICE_ACCOUNT_JSON must contain valid JSON'
+      );
+    }
+
+    initializeApp({
+      credential: cert(serviceAccount)
+    });
+  } else if (FIREBASE_SERVICE_ACCOUNT_PATH) {
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
+    const serviceAccountPath = path.resolve(
+      __dirname,
+      FIREBASE_SERVICE_ACCOUNT_PATH
+    );
+
+    initializeApp({
+      credential: cert(serviceAccountPath)
+    });
+  } else {
+    throw new Error(
+      'Configure FIREBASE_SERVICE_ACCOUNT_JSON or FIREBASE_SERVICE_ACCOUNT_PATH'
+    );
+  }
+}
 
 const db = getFirestore();
 const wishesCollection = db.collection('wishes');
 
-// Replace example passwords before deployment.
 const PASSWORD_TO_ROLE = {
-  [process.env.CREATOR_PASSWORD]: 'CREATOR',
-  [process.env.FRIEND_PASSWORD]: 'FRIEND'
+  [CREATOR_PASSWORD]: 'CREATOR',
+  [FRIEND_PASSWORD]: 'FRIEND'
 };
 
 // Login
@@ -106,13 +141,14 @@ app.get('/api/wishes', verifyToken, async (req, res) => {
     return res.json(wishes);
   } catch (error) {
     console.error('Fetch wishes failed:', error.message);
+
     return res.status(500).json({
       error: 'Could not fetch wishes'
     });
   }
 });
 
-// Save a wish permanently
+// Save a wish
 app.post('/api/wishes', verifyToken, async (req, res) => {
   try {
     const author =
@@ -132,11 +168,12 @@ app.post('/api/wishes', verifyToken, async (req, res) => {
       message.length > 1000
     ) {
       return res.status(400).json({
-        error: 'Author (1–60 chars) and message (1–1000 chars) are required'
+        error:
+          'Author (1–60 chars) and message (1–1000 chars) are required'
       });
     }
 
-    // Preserve numeric IDs for compatibility with your existing frontend.
+    // Preserve numeric IDs for frontend compatibility.
     const id = Date.now();
 
     const wish = {
@@ -155,13 +192,14 @@ app.post('/api/wishes', verifyToken, async (req, res) => {
     });
   } catch (error) {
     console.error('Save wish failed:', error.message);
+
     return res.status(500).json({
       error: 'Could not save wish'
     });
   }
 });
 
-// Only creator can delete wishes
+// Only the creator can delete wishes.
 app.delete('/api/wishes/:id', verifyToken, async (req, res) => {
   if (req.user.role !== 'CREATOR') {
     return res.status(403).json({
@@ -192,6 +230,7 @@ app.delete('/api/wishes/:id', verifyToken, async (req, res) => {
     return res.json({ success: true });
   } catch (error) {
     console.error('Delete wish failed:', error.message);
+
     return res.status(500).json({
       error: 'Could not delete wish'
     });
@@ -203,6 +242,12 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-app.listen(Number(PORT), '0.0.0.0', () => {
-  console.log(`Backend API running on port ${PORT}`);
-});
+// Vercel imports the Express app.
+// Local development starts its own server.
+if (!process.env.VERCEL) {
+  app.listen(Number(PORT), '0.0.0.0', () => {
+    console.log(`Backend API running on port ${PORT}`);
+  });
+}
+
+export default app;
