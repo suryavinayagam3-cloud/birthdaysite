@@ -5,7 +5,7 @@
 
 const birthdayData = {
   // ─── Core Info ───
-  girlfriendName: "meenu",
+  girlfriendName: "Meenasulokshani",
   nickname: "pattu",
   birthday: "2026-10-27T00:00:00",
 
@@ -14,14 +14,14 @@ const birthdayData = {
   heroHeading: "To The Girl Who Makes My World",
   heroHighlight: "Beautiful",
   heroMessage:
-    "Happy Birthday, my love. Today, I built this little corner of the internet just for you — a place to store our laughs, our late-night conversations, and all the quiet wonders of loving you.",
+    "Happy Birthday, pattu. Today, I built this little corner of the internet just for you — a place to store our laughs, our late-night conversations, and all the quiet wonders of loving you!!!.",
   heroStats: [
     { value: "1,095+", label: "Days Together" },
     { value: "∞", label: "Warm Hugs" },
     { value: "1", label: "Only You" },
   ],
   heroPortrait:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuCKGGP__C9UFV-AwmbTfjxEahgEBS4YLf-NIdlATtKeL_NjY_WCQAfHC9ISnzHKhMuiYAhVN1TRdUG-GKjc2knl48VFZf_NNpZlaDXUGdYpmQCTSqemXPVQ4V9iLLGct6oDPHsoKdgSYBmKLJb4giunRw-ktXAaaJ1MUpnYDA6cfwwN0y8mutz0NTuUhc9J9iNn7CsGpPBj9ivk7dC67nMitwF40ywveTSGXBPM7dwpKzV87tCUxGiY",
+    "/img0.jpeg",
 
   // ─── Opening Screen ───
   openingSubtitle: "A Private Birthday Experience",
@@ -31,21 +31,21 @@ const birthdayData = {
   // ─── Timeline / Our Story ───
   timeline: [
     {
-      date: "Autumn 2023",
+      date: "summer 2023",
       title: "Our Beginning",
       description:
-        '"Where everything quietly began... one shy conversation across a crowded room that ended up changing my whole life."',
+        '" the only thing i remember is the ride in  bike together that day its my special day"',
       image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuAk34RKxVGEPUhKM1Nt-FGfh8kI9XXuCFX68FmaTIAMHgSKBfsSYZ1gutsBp64c19Pws2Ih-uHxYegzCdnQTZxl51JDFecisYnV-OveTGRNIoXDN-0XRHOn3tCJCsXg_agyAZDChGjb5mDCTr0JQDqjdg-gW5LDJn_VLrwoaBgYkalzGbzGGJ1Trahj-7aHPQCWxYzMcbmcXZDNqvwopF9QPKXTyeUZRJIlqC5JFiu9D8qFd8DeilUA",
+        "/img2.jpeg",
       color: "softpink",
     },
     {
-      date: "Summer Getaway",
-      title: "A Special Memory",
+      date: " Getaway",
+      title: "A Special Memory,first out as couple tharangambadi...",
       description:
-        '"A twilight beach, fairy lanterns in the sand, and the realization that with your hand in mine, anywhere feels like home."',
+        '"so hot weather we have arround there some times we should be liked BBQ."',
       image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuCAIAk6RWKD5oMaLi3WiSqlRBGlYlyYUn-akgwnfCA4vpeRmSBETXydQ5p7K18l6giks5tcPPur2pcvcPCX0j8lArdAZSJqU7vny10COF-sjfd-z2M8moulD9InMEpPrvyj-EfHcxkCLJfFD3Sq2awZKcpTMKdMCjUHjrHMk7JVbtxTF5tuMgQx6pxVHrlvWYoRQwKQR1PooLhk17z5Erf8LtySaODrETm6tswSfhkPND7lapggdyQv",
+        "/img3.jpeg",
       color: "rosegold",
     },
     {
@@ -54,7 +54,7 @@ const birthdayData = {
       description:
         '"Here we are, celebrating another chapter of your life. Grateful for yesterday, amazed by today, and eager for all our tomorrows."',
       image: null,
-      quote: '"You are my greatest adventure."',
+      quote: '"Your always my gurdian angel."',
       color: "softpink",
     },
   ],
@@ -63,30 +63,30 @@ const birthdayData = {
   memories: [
     {
       badge: "01 — The Beginning ❤️",
-      title: "Parisian Cafe Mornings",
-      caption: "Where time slowed down for latte art and your smile.",
+      title: "the meet in tvr junction",
+      caption: "We had our first kiss and first meet as couple .",
       image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuAk34RKxVGEPUhKM1Nt-FGfh8kI9XXuCFX68FmaTIAMHgSKBfsSYZ1gutsBp64c19Pws2Ih-uHxYegzCdnQTZxl51JDFecisYnV-OveTGRNIoXDN-0XRHOn3tCJCsXg_agyAZDChGjb5mDCTr0JQDqjdg-gW5LDJn_VLrwoaBgYkalzGbzGGJ1Trahj-7aHPQCWxYzMcbmcXZDNqvwopF9QPKXTyeUZRJIlqC5JFiu9D8qFd8DeilUA",
+        "/img1.jpeg",
       fullCaption:
         "Where time slowed down for latte art, delicate peonies, and your sweetest smile.",
     },
     {
-      badge: "02 — That Beautiful Smile",
-      title: "Golden Hour In The Roses",
-      caption: "The way the sunset lit up your face that afternoon.",
+      badge: "02 —the first movie date as friends ",
+      title: "holding hands",
+      caption: "the movie date that sparks our love further ",
       image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuCKGGP__C9UFV-AwmbTfjxEahgEBS4YLf-NIdlATtKeL_NjY_WCQAfHC9ISnzHKhMuiYAhVN1TRdUG-GKjc2knl48VFZf_NNpZlaDXUGdYpmQCTSqemXPVQ4V9iLLGct6oDPHsoKdgSYBmKLJb4giunRw-ktXAaaJ1MUpnYDA6cfwwN0y8mutz0NTuUhc9J9iNn7CsGpPBj9ivk7dC67nMitwF40ywveTSGXBPM7dwpKzV87tCUxGiY",
+        "/img4.jpeg",
       fullCaption:
-        "The way the sunset rimmed your hair and you laughed when the breeze blew through.",
+        "The amount of feelings that we have hold for each other that was so unexplainable.",
     },
     {
-      badge: "03 — One Of My Favorite Days",
-      title: "Lantern Beach Strolls",
-      caption: "Warm waves brushing our toes under the stars.",
+      badge: "03 — i am surprisly went your college",
+      title: "surprise see",
+      caption: "i went her college to surprise her .",
       image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuCAIAk6RWKD5oMaLi3WiSqlRBGlYlyYUn-akgwnfCA4vpeRmSBETXydQ5p7K18l6giks5tcPPur2pcvcPCX0j8lArdAZSJqU7vny10COF-sjfd-z2M8moulD9InMEpPrvyj-EfHcxkCLJfFD3Sq2awZKcpTMKdMCjUHjrHMk7JVbtxTF5tuMgQx6pxVHrlvWYoRQwKQR1PooLhk17z5Erf8LtySaODrETm6tswSfhkPND7lapggdyQv",
+        "/img5.jpeg",
       fullCaption:
-        "Warm gentle waves, fairy light lanterns in the sand, and two hearts completely content.",
+        "you where so happy that day",
     },
   ],
 
@@ -94,93 +94,84 @@ const birthdayData = {
   polaroids: [
     {
       image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuCKGGP__C9UFV-AwmbTfjxEahgEBS4YLf-NIdlATtKeL_NjY_WCQAfHC9ISnzHKhMuiYAhVN1TRdUG-GKjc2knl48VFZf_NNpZlaDXUGdYpmQCTSqemXPVQ4V9iLLGct6oDPHsoKdgSYBmKLJb4giunRw-ktXAaaJ1MUpnYDA6cfwwN0y8mutz0NTuUhc9J9iNn7CsGpPBj9ivk7dC67nMitwF40ywveTSGXBPM7dwpKzV87tCUxGiY",
-      caption: '"Your laugh always wins" ❤️',
-      date: "June 14th — Botanical Walk",
-      rotation: -3,
+        "/img6.jpeg",
+      caption: '"we spent whole day and night together and i feel so warm in her presence we went plani " ❤️',
+      date: "march 19th — devotional",
+      rotation: -6,
     },
     {
       image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuCAIAk6RWKD5oMaLi3WiSqlRBGlYlyYUn-akgwnfCA4vpeRmSBETXydQ5p7K18l6giks5tcPPur2pcvcPCX0j8lArdAZSJqU7vny10COF-sjfd-z2M8moulD9InMEpPrvyj-EfHcxkCLJfFD3Sq2awZKcpTMKdMCjUHjrHMk7JVbtxTF5tuMgQx6pxVHrlvWYoRQwKQR1PooLhk17z5Erf8LtySaODrETm6tswSfhkPND7lapggdyQv",
-      caption: '"Lanterns & sea breeze" ✨',
-      date: "August 2nd — Sunset Coast",
+        "/img7.jpeg",
+      caption: '"we celebrate my birthday in pondychery" ✨',
+      date: "july 4th — Pondychery",
       rotation: 2,
     },
     {
       image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuAk34RKxVGEPUhKM1Nt-FGfh8kI9XXuCFX68FmaTIAMHgSKBfsSYZ1gutsBp64c19Pws2Ih-uHxYegzCdnQTZxl51JDFecisYnV-OveTGRNIoXDN-0XRHOn3tCJCsXg_agyAZDChGjb5mDCTr0JQDqjdg-gW5LDJn_VLrwoaBgYkalzGbzGGJ1Trahj-7aHPQCWxYzMcbmcXZDNqvwopF9QPKXTyeUZRJIlqC5JFiu9D8qFd8DeilUA",
-      caption: '"Warm coffee & you" ☕',
-      date: "October 11th — Autumn Morning",
+        "/img8.jpeg",
+      caption: "we went coimbatore and marudhamalai",
+      date: "October 3rd — Autumn Morning",
       rotation: -2,
+    },
+    {
+      image: "/img9.jpeg",
+      caption: "we went poombhuhar and thats our second out as an couple",
+      date: "april 22nd — Winter Walk",
+      rotation: 6,
+    },
+    {
+      image: "/img10.jpeg",
+      caption: "whitish velankanni church",
+      date: "september 26 — ammen!!!",
+      rotation: -1,
     },
   ],
 
   // ─── Things I Love About You ───
   qualities: [
     {
-      icon: "Smile",
-      title: "Your Smile",
+      icon: "angry",
+      title: "your angry",
       description:
-        '"Because it has this effortless power to brighten the darkest room, calm my racing thoughts, and make an ordinary Tuesday feel magical."',
+  '" you get angry so easily theliva sollanumna kovathula enna nalum pesuva ana konja nerathula adhu poidum analum kolupu konjam jasthi dhan"',
       color: "softpink",
     },
     {
       icon: "Sparkles",
       title: "Your Kindness",
       description:
-        '"The gentle empathy you carry, the thoughtful surprises, and the quiet ways you care for people when no one is looking."',
+        '"nee romba helping minded ana alu adha deserve ana alungaluku matum pannu ."',
       color: "rosegold",
     },
     {
       icon: "Music",
       title: "Your Laugh",
       description:
-        '"Unfiltered, contagious, and genuine. It remains my absolute favorite sound in the world, one I never get tired of hearing."',
+        '"nee epudina oru alavana siripu dhan irukum yean kuda irukurapo eppodhum uurrrunu dhan irupa😏."',
       color: "softpink",
     },
   ],
 
-  // ─── Birthday Wishes (preloaded) ───
-  wishes: [
-    {
-      author: "Sophia M.",
-      message:
-        '"Happy Birthday gorgeous! Stay happy and keep smiling always. You bring so much radiant energy wherever you go!"',
-      time: "Today at 10:14 AM",
-    },
-    {
-      author: "Ethan & Chloe",
-      message:
-        '"Wishing the happiest of birthdays to the sweetest soul! May this new chapter bring endless laughs and dream trips!"',
-      time: "Yesterday",
-    },
-    {
-      author: "Jessica K.",
-      message:
-        '"Happy Birthday my dearest friend! So lucky to have you in my corner. Drink lots of champagne today!"',
-      time: "2 days ago",
-    },
-  ],
 
   // ─── Love Letter ───
   loveLetter: {
     greeting: "My Dearest",
     paragraphs: [
-      "Happy Birthday, my love. If there's one thing I've learned from every day we've spent together, it's that happiness isn't a destination — it's the feeling of sitting across from you while you laugh until you have to catch your breath.",
-      "You make hard days feel light, you turn quiet evenings into our favorite memories, and you love with a gentleness that leaves me in awe.",
-      "Thank you for being my anchor, my sweetest distraction, and my very best friend. I hope this upcoming year rewards you with all the beauty, peace, and dreams your heart desires.",
+      "Happy Birthday pattu nee enaku romba mukiyama na alu onna thavara baki yarumae avungalukunu oru important person avunga life la irpanga nanaipan ana nee varpo onaku important ah na matum dhan irukanum nanaipan...",
+      "na ippo dhan sonna nee eanta pesuna dhan nalla thunguvan illana thukamae vara matudhu soo ivlo important enaku nee nu purinjuka .",
+      " love you di pndatiee💋💋💋💋 wishyou many more happy returns of the day in this special day some times i got so tierd of your arguments adha niruthavae oant pesura time korachikuran onnoda behaviour apudi dhan adhu enna hurt panna kuda dhuna onnu na accept pannikanum illa accept pannikura mari nadan dhukanum i do both sand varum lam illa onakaga 😏...nee  happyah irundha podhum thas my context adhukuna lusu atam pandrapolam onna kekama iruka mudiyadhu so any ways happy birtday cylinderuuh🤍!!! ",
     ],
     closing: "With all my love ❤️",
-    signature: "Always & Forever Yours",
+    signature: "your loving husband",
   },
 
   // ─── Music ───
   music: {
-    title: "Golden Hour (Piano)",
-    artist: "Acoustic Melody & Strings",
-    src: "https://actions.google.com/sounds/v1/water/rain_heavy.ogg",
+    title: "kadhalada",
+    artist: "anirudh ravichanderan",
+    src: "/audio.mpeg",
     albumArt:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCKGGP__C9UFV-AwmbTfjxEahgEBS4YLf-NIdlATtKeL_NjY_WCQAfHC9ISnzHKhMuiYAhVN1TRdUG-GKjc2knl48VFZf_NNpZlaDXUGdYpmQCTSqemXPVQ4V9iLLGct6oDPHsoKdgSYBmKLJb4giunRw-ktXAaaJ1MUpnYDA6cfwwN0y8mutz0NTuUhc9J9iNn7CsGpPBj9ivk7dC67nMitwF40ywveTSGXBPM7dwpKzV87tCUxGiY",
+      "/img0.jpeg",
   },
 
   // ─── Gift ───
@@ -188,13 +179,13 @@ const birthdayData = {
 
   // ─── Secret Surprise ───
   secretMessage:
-    "In every lifetime, every universe, and across all stars... my heart would always find its way back to you. You are my favorite home. Happy Birthday, my love! ✨💖",
+    "முதிர்ந்த கதிரொளி முன்னே, முளைத்த திங்களாய் முகில்தொடும் மலையை நாடும் சிற்றருவியாய் காலம் கடந்த மலரொடு களிபுனல் சேர்வதுபோல் அவளே என் வானம் அவள் நிழலே என் வாழ்வு ✨💖             surya",
 
   // ─── Final Scene ───
-  finalHeading: "Happy Birthday, Beautiful ❤️",
+  finalHeading: "Happy Birthday pattu!!! ❤️",
   finalQuote:
-    '"May this year bring you beautiful memories, endless smiles and everything you\'ve been wishing for."',
-  finalSubquote: '"Thank you for being part of my story."',
+    '"May this year bring you beautiful memories, endless smiles and everything you have been wishing for going to happen."',
+  finalSubquote: '"Thank you for being part of my life no your my life ."',
 };
 
 export default birthdayData;

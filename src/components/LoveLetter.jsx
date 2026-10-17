@@ -39,7 +39,7 @@ export default function LoveLetter({ data, date }) {
           <div className="w-16 h-16 mx-auto rounded-full bg-softpink/15 border border-softpink/40 flex items-center justify-center text-softpink mb-4">
             <Mail className="w-8 h-8" />
           </div>
-          <p className="font-serif text-xl sm:text-2xl font-bold text-warmwhite">To My Beloved Aria</p>
+          <p className="font-serif text-xl sm:text-2xl font-bold text-warmwhite">To My Beloved meenu</p>
           <p className="text-xs text-rosegold tracking-widest uppercase mt-1">Sealed with genuine love</p>
           <div className="mt-6 inline-flex items-center gap-2 px-5 py-2 rounded-full bg-softpink/20 text-softpink text-xs font-semibold tracking-wider">
             <span>Tap To {letterOpened ? 'Close' : 'Open'} Envelope</span>

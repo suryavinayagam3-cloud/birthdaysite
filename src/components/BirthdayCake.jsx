@@ -92,7 +92,7 @@ export default function BirthdayCake() {
               </div>
               {/* Gold leaf details */}
               <div className="absolute bottom-2 inset-x-0 text-center text-rosegold/70 text-xs tracking-widest font-serif font-bold">
-                ARIA'S SWEETEST YEAR
+                MEENU'S SWEETEST YEAR
               </div>
             </div>
 

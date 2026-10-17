@@ -31,7 +31,7 @@ export default function Hero({ data }) {
                 <div className="absolute bottom-4 left-4 right-4 glass-panel p-3 rounded-xl border border-white/10 flex items-center justify-between">
                   <div>
                     <p className="text-xs text-rosegold font-medium uppercase tracking-wider">The Birthday Girl</p>
-                    <p className="font-serif font-bold text-warmwhite text-lg">{data.girlfriendName} Rose</p>
+                    <p className="font-serif font-bold text-warmwhite text-lg">{data.girlfriendName} </p>
                   </div>
                   <div className="w-10 h-10 rounded-full bg-softpink/20 border border-softpink/40 flex items-center justify-center">
                     <Sparkle className="w-5 h-5 text-softpink" />
