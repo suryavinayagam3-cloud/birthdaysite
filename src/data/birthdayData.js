@@ -167,9 +167,9 @@ const birthdayData = {
 
   // ─── Music ───
   music: {
-    title: "kadhalada",
+    title: "avalukena",
     artist: "anirudh ravichanderan",
-    src: "/audio.mpeg",
+    src: "/audio.mp3",
     albumArt:
       "/img0.jpeg",
   },
