@@ -16,7 +16,7 @@ const birthdayData = {
   heroMessage:
     "Happy Birthday, pattu. Today, I built this little corner of the internet just for you — a place to store our laughs, our late-night conversations, and all the quiet wonders of loving you!!!.",
   heroStats: [
-    { value: "1,095+", label: "Days Together" },
+    { value: "365+", label: "Days Together" },
     { value: "∞", label: "Warm Hugs" },
     { value: "1", label: "Only You" },
   ],
