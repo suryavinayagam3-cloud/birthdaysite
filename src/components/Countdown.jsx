@@ -14,7 +14,11 @@ export default function Countdown({ date = BIRTHDAY_TARGET }) {
   const [isReached, setIsReached] = useState(false);
 
   useEffect(() => {
-    // Parse the target date, including its timezone.
+    let active = true;
+    let interval;
+    let syncInterval;
+    let serverOffset = 0;
+
     const target = new Date(date).getTime();
 
     if (Number.isNaN(target)) {
@@ -23,7 +27,10 @@ export default function Countdown({ date = BIRTHDAY_TARGET }) {
     }
 
     const updateTimer = () => {
-      const now = Date.now();
+      if (!active) return;
+
+      // Use synchronized server time instead of the laptop clock.
+      const now = Date.now() + serverOffset;
       const difference = target - now;
 
       if (difference <= 0) {
@@ -40,7 +47,6 @@ export default function Countdown({ date = BIRTHDAY_TARGET }) {
       setIsReached(false);
 
       const totalSeconds = Math.floor(difference / 1000);
-
       const days = Math.floor(totalSeconds / 86400);
       const hours = Math.floor((totalSeconds % 86400) / 3600);
       const minutes = Math.floor((totalSeconds % 3600) / 60);
@@ -54,11 +60,46 @@ export default function Countdown({ date = BIRTHDAY_TARGET }) {
       });
     };
 
+    const syncServerTime = async () => {
+      try {
+        const before = Date.now();
+
+        const response = await fetch('/api/time', {
+          cache: 'no-store',
+        });
+
+        if (!response.ok) {
+          throw new Error(`Time API returned ${response.status}`);
+        }
+
+        const data = await response.json();
+        const after = Date.now();
+
+        if (!Number.isFinite(data.now)) {
+          throw new Error('Invalid server time received');
+        }
+
+        if (!active) return;
+
+        // Estimate server time using the request midpoint.
+        serverOffset = data.now - (before + after) / 2;
+        updateTimer();
+      } catch (error) {
+        console.error('Server time sync failed:', error);
+      }
+    };
+
     updateTimer();
+    syncServerTime();
 
-    const interval = setInterval(updateTimer, 1000);
+    interval = setInterval(updateTimer, 1000);
+    syncInterval = setInterval(syncServerTime, 60000);
 
-    return () => clearInterval(interval);
+    return () => {
+      active = false;
+      clearInterval(interval);
+      clearInterval(syncInterval);
+    };
   }, [date]);
 
   const formattedDate = new Date(date).toLocaleDateString('en-IN', {

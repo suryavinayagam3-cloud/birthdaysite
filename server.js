@@ -43,9 +43,9 @@ app.use(express.json({ limit: '20kb' }));
 // On Vercel, configure FIREBASE_SERVICE_ACCOUNT_JSON.
 // Locally, FIREBASE_SERVICE_ACCOUNT_PATH can point to the JSON file.
 if (getApps().length === 0) {
-  let serviceAccount;
-
   if (FIREBASE_SERVICE_ACCOUNT_JSON) {
+    let serviceAccount;
+
     try {
       serviceAccount = JSON.parse(FIREBASE_SERVICE_ACCOUNT_JSON);
     } catch {
@@ -81,6 +81,17 @@ const PASSWORD_TO_ROLE = {
   [CREATOR_PASSWORD]: 'CREATOR',
   [FRIEND_PASSWORD]: 'FRIEND'
 };
+
+// Server time for the birthday countdown.
+// Returns the server's current Unix timestamp in milliseconds.
+app.get('/api/time', (req, res) => {
+  res.set('Cache-Control', 'no-store');
+
+  return res.json({
+    now: Date.now(),
+    timezone: 'Asia/Kolkata'
+  });
+});
 
 // Login
 app.post('/api/login', (req, res) => {
